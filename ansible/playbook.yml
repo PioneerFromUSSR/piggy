@@ -1,0 +1,22 @@
+---
+- name: Creates directory
+  hosts: all
+  remote_user: student
+  tasks:
+  - name: Creates directory
+    file:
+      path: /home/student/shilov
+      recurse: yes
+      state: directory
+  
+- name: Copy files
+  hosts: all
+  remote_user: student
+  tasks:
+  - name: Copy new files to remote server
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: ../pig, dest: /home/student/shilov/ } 
+      - { src: ../resources/, dest: /home/student/shilov/resources/ }

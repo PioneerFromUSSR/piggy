@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pig
+spec:
+  containers:
+  - name: pig
+    image: sion2k/pig:t1-k8s
+    ports:
+    - containerPort: 8000

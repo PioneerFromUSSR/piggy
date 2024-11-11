@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  pig:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - pig_net
+
+networks:
+  pig_net:
